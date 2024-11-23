@@ -5,13 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI for Search Opreation</title>
+    <style>
+        body{
+            background-color: #9999ff;
+        }
+        .container{
+            width:200px;
+            margin: 20px auto;
+            background-color: azure;
+            padding: 10px ;
+            border: 1px solid #000033;
+        }
+        
+        .student-card{
+            border: 1px solid black;
+            margin: 5px 15px;
+            text-align: center;
+            color: #000066;
+            width: 170px;
+            background-color: #e6e6ff;
+        }
+        .search{
+            font-size: 16px;
+            cursor: pointer;
+             text-align: center;
+        }
+        
+        .app-heading{
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Students</h1>
-    <input type="text" id="search" placeholder="search" onkeyup="loadResult()" />
+    <h1 class="app-heading">🔎Students🔍</h1>
+    <div class="container">
+    <input type="text" id="search" class="search" placeholder="search" onkeyup="loadResult()" />
     <div id="students-container">
 
+    </div>
     </div>
     <script>
         const students = [
@@ -34,26 +67,26 @@
         ]
         const studentsContainer = document.getElementById("students-container");
 
-        students.forEach((stud)=>{
+        students.forEach((stud) => {
             studentsContainer.innerHTML += `<div class="student-card">${stud}</div>`
         })
 
-        function loadResult(){
+        function loadResult() {
             const inputElement = document.getElementById("search");
             const searchText = inputElement.value.toLowerCase();
 
             studentsContainer.innerHTML = '';
 
-            const filterStudents =students.filter((stud)=>{
-                if(stud.toLowerCase().includes(searchText)){
+            const filterStudents = students.filter((stud) => {
+                if (stud.toLowerCase().includes(searchText)) {
                     return true;
                 }
             })
-        filterStudents.forEach((stud)=>{
-            studentsContainer.innerHTML += `<div class="student-card">${stud}</div>`
-        })
+            filterStudents.forEach((stud) => {
+                studentsContainer.innerHTML += `<div class="student-card">${stud}</div>`
+            })
         }
-        
+
     </script>
 </body>
 
