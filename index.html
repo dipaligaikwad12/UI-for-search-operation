@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UI for Search Opreation</title>
 </head>
+
 <body>
-    
+    <h1>Students</h1>
+    <input type="text" id="search" placeholder="search" onkeyup="loadSearchResult" />
+    <div id="students-container">
+
+    </div>
+    <script>
+        const students = [
+            "Archana",
+            "Mansi",
+            "Pooja",
+            "Sayli",
+            "Sonali",
+            "Aarti",
+            "Neha",
+            "Pallavi",
+            "Preeti",
+            "Deepali",
+            "Rutuja",
+            "Kunal",
+            "Chetan",
+            "Mahesh",
+            "Gauri",
+            "Priya"
+        ]
+        const studentsContainer = document.getElementById("students-container");
+        students.forEach((stud)=>{
+            studentsContainer.innerHTML += `<div class="student-card">${stud}</div>`;~
+        })
+        
+    </script>
 </body>
+
 </html>
